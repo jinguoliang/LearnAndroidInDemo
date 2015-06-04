@@ -26,6 +26,7 @@
             android:enabled="true"
             android:exported="true" >
         </service>
+        <activity android:name=".slidingmenu.SlidingMenuActivity"></activity>
     </application>
 
 </manifest>
