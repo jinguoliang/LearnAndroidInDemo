@@ -26,6 +26,11 @@
             android:enabled="true"
             android:exported="true" >
         </service>
+
+        <activity
+            android:name=".titanic.TitanicDemo"
+            android:label="@string/title_activity_titanic_demo" >
+        </activity>
     </application>
 
 </manifest>

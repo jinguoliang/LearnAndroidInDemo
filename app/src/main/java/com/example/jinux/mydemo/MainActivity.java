@@ -1,5 +1,6 @@
 package com.example.jinux.mydemo;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
+import com.example.jinux.mydemo.titanic.TitanicDemo;
 import com.example.jinux.mydemo.xuanfukuang.XuanfukuangActivity;
 
 import java.util.ArrayList;
@@ -23,21 +25,31 @@ public class MainActivity extends ListActivity {
         setContentView(R.layout.activity_main);
         List<String> list = new ArrayList<>();
         list.add("悬浮框");
+        list.add("波浪效果");
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list));
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent();
 
-                switch (position){
+                switch (position) {
                     case 0:
-                        i.setClass(MainActivity.this,XuanfukuangActivity.class);
+                        startActivity(XuanfukuangActivity.class);
+
+                        break;
+                    case 1:
+                        startActivity(TitanicDemo.class);
+                        break;
                         break;
                 }
 
-                startActivity(i);
             }
         });
+    }
+
+    void startActivity(Class<? extends Activity> c) {
+        Intent i = new Intent();
+        i.setClass(MainActivity.this, c);
+        startActivity(i);
     }
 
     @Override
