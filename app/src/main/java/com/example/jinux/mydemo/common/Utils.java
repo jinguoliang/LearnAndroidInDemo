@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -50,5 +52,13 @@ public class Utils {
             e.printStackTrace();
         }
         return -1;
+    }
+
+    public static void showToast(Context c,String s){
+        Toast.makeText(c,s,Toast.LENGTH_SHORT).show();
+    }
+
+    public static void log(String s){
+        Log.i("msg", s);
     }
 }
