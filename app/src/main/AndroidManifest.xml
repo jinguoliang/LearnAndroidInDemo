@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jinux.mydemo" >
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"></uses-permission>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -30,6 +31,10 @@
         <activity
             android:name=".titanic.TitanicDemo"
             android:label="@string/title_activity_titanic_demo" >
+        </activity>
+        <activity
+            android:name=".drawer.DrawerActivity"
+            android:label="@string/title_activity_drawer" >
         </activity>
     </application>
 
