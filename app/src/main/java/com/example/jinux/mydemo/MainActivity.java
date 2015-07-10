@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
+import com.example.jinux.mydemo.slidingmenu.SlidingMenuActivity;
 import com.example.jinux.mydemo.actitionbar.ActitionBarDemo;
 import com.example.jinux.mydemo.drawer.DrawerActivity;
 import com.example.jinux.mydemo.storehouse.StoreHouseUsingStringArray;
@@ -32,6 +33,7 @@ public class MainActivity extends ListActivity {
         list.add("抽屉");
         list.add("Toolbar");
         list.add("storehouse");
+        list.add("侧滑菜单");
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list));
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -53,6 +55,9 @@ public class MainActivity extends ListActivity {
                         break;
                     case 4:
                         startActivity(StoreHouseUsingStringArray.class);
+						break;
+					case 5:
+                        startActivity(SlidingMenuActivity.class);
                         break;
                 }
 
