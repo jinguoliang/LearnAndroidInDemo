@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.example.jinux.mydemo.actitionbar.ActitionBarDemo">
+    <item android:id="@+id/action_settings"
+          android:title="@string/action_settings"
+          android:orderInCategory="100"
+          app:showAsAction="always"/>
+    <group android:id="@+id/setting">
+        <item android:id="@+id/color_settings" android:title="color" app:showAsAction="always"></item>
+        <item android:id="@+id/font_settings" android:title="font" app:showAsAction="always"></item>
+    </group>
+</menu>

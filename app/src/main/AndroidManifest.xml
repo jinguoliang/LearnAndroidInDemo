@@ -36,6 +36,13 @@
             android:name=".drawer.DrawerActivity"
             android:label="@string/title_activity_drawer" >
         </activity>
+        <activity
+            android:name=".actitionbar.ActitionBarDemo"
+            android:label="@string/title_activity_actition_bar_demo"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
+        </activity>
+        <activity android:name=".storehouse.StoreHouseUsingStringArray"></activity>
     </application>
 
 </manifest>

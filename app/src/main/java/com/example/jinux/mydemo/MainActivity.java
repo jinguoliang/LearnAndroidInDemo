@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
+import com.example.jinux.mydemo.actitionbar.ActitionBarDemo;
 import com.example.jinux.mydemo.drawer.DrawerActivity;
+import com.example.jinux.mydemo.storehouse.StoreHouseUsingStringArray;
 import com.example.jinux.mydemo.titanic.TitanicDemo;
 import com.example.jinux.mydemo.xuanfukuang.XuanfukuangActivity;
 
@@ -28,6 +30,8 @@ public class MainActivity extends ListActivity {
         list.add("悬浮框");
         list.add("波浪效果");
         list.add("抽屉");
+        list.add("Toolbar");
+        list.add("storehouse");
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list));
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -43,6 +47,12 @@ public class MainActivity extends ListActivity {
                         break;
                     case 2:
                         startActivity(DrawerActivity.class);
+                        break;
+                    case 3:
+                        startActivity(ActitionBarDemo.class);
+                        break;
+                    case 4:
+                        startActivity(StoreHouseUsingStringArray.class);
                         break;
                 }
 
