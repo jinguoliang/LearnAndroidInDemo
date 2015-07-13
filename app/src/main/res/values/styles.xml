@@ -7,4 +7,9 @@
     <style name="AppBar" parent="@style/ThemeOverlay.AppCompat">
         <item name="selectableItemBackground">@null</item>
     </style>
+    
+    <style name="mytheme" parent="android:Theme.Material">
+        <item name="android:windowContentTransitions">true</item>
+
+    </style>
 </resources>

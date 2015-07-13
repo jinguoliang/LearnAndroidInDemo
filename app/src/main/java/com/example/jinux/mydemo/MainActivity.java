@@ -1,15 +1,20 @@
 package com.example.jinux.mydemo;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.method.Touch;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
+import com.example.jinux.mydemo.materail_animation.TouchFeedBack;
 import com.example.jinux.mydemo.slidingmenu.SlidingMenuActivity;
 import com.example.jinux.mydemo.actitionbar.ActitionBarDemo;
 import com.example.jinux.mydemo.drawer.DrawerActivity;
@@ -34,6 +39,7 @@ public class MainActivity extends ListActivity {
         list.add("Toolbar");
         list.add("storehouse");
         list.add("侧滑菜单");
+        list.add("Material Animation");
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list));
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -59,10 +65,21 @@ public class MainActivity extends ListActivity {
 					case 5:
                         startActivity(SlidingMenuActivity.class);
                         break;
+                    case 6:
+                        startActivityTransition(TouchFeedBack.class);
+
+                        break;
                 }
 
             }
         });
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void startActivityTransition(Class<TouchFeedBack> touchFeedBackClass) {
+        Intent i = new Intent(MainActivity.this, touchFeedBackClass);
+        startActivity(i,
+                ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
     }
 
     void startActivity(Class<? extends Activity> c) {
