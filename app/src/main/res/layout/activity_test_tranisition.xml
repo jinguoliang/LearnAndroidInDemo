@@ -8,5 +8,6 @@
         android:layout_height="200dp"
         android:src="@drawable/ic_launcher"
         android:transitionName="hello"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:onClick="onImageClick"/>
 </FrameLayout>
