@@ -59,6 +59,6 @@ public class Utils {
     }
 
     public static void log(String s){
-        Log.i("msg", s);
+        Log.i("wowoMsg", s);
     }
 }

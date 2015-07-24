@@ -6,4 +6,5 @@
     <string name="title_activity_titanic_demo">TitanicDemo</string>
     <string name="title_activity_drawer">DrawerActivity</string>
     <string name="title_activity_actition_bar_demo">ActitionBarDemo</string>
+    <string name="title_activity_netstate">Netstate</string>
 </resources>

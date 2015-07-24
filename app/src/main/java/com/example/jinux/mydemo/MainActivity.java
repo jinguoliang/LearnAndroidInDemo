@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import com.example.jinux.mydemo.materail_animation.TouchFeedBack;
+import com.example.jinux.mydemo.netstate.Netstate;
 import com.example.jinux.mydemo.slidingmenu.SlidingMenuActivity;
 import com.example.jinux.mydemo.actitionbar.ActitionBarDemo;
 import com.example.jinux.mydemo.drawer.DrawerActivity;
@@ -40,6 +41,7 @@ public class MainActivity extends ListActivity {
         list.add("storehouse");
         list.add("侧滑菜单");
         list.add("Material Animation");
+        list.add("网络状态");
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list));
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -67,7 +69,9 @@ public class MainActivity extends ListActivity {
                         break;
                     case 6:
                         startActivityTransition(TouchFeedBack.class);
-
+                        break;
+                    case 7:
+                        startActivity(Netstate.class);
                         break;
                 }
 
