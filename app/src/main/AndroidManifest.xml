@@ -5,7 +5,7 @@
     <uses-permission android:name="ANDROID.PERMISSION.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="ANDROID.PERMISSION.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="ANDROID.PERMISSION.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -53,6 +53,10 @@
         <activity
             android:name=".netstate.Netstate"
             android:label="@string/title_activity_netstate" >
+        </activity>
+        <activity
+            android:name=".tabhost.TestTabActivity"
+            android:label="@string/title_activity_test_tab" >
         </activity>
     </application>
 

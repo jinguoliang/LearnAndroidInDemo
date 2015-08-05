@@ -20,6 +20,7 @@ import com.example.jinux.mydemo.slidingmenu.SlidingMenuActivity;
 import com.example.jinux.mydemo.actitionbar.ActitionBarDemo;
 import com.example.jinux.mydemo.drawer.DrawerActivity;
 import com.example.jinux.mydemo.storehouse.StoreHouseUsingStringArray;
+import com.example.jinux.mydemo.tabhost.TestTabActivity;
 import com.example.jinux.mydemo.titanic.TitanicDemo;
 import com.example.jinux.mydemo.xuanfukuang.XuanfukuangActivity;
 
@@ -42,6 +43,7 @@ public class MainActivity extends ListActivity {
         list.add("侧滑菜单");
         list.add("Material Animation");
         list.add("网络状态");
+        list.add("TabHost");
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list));
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -72,6 +74,9 @@ public class MainActivity extends ListActivity {
                         break;
                     case 7:
                         startActivity(Netstate.class);
+                        break;
+                    case 8:
+                        startActivity(TestTabActivity.class);
                         break;
                 }
 
