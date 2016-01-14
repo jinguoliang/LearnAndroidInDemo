@@ -8,12 +8,15 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.method.Touch;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
+import com.example.jinux.mydemo.TestGoogleApi.TestGoogleApi;
+import com.example.jinux.mydemo.animation.TestAnimation;
 import com.example.jinux.mydemo.materail_animation.TouchFeedBack;
 import com.example.jinux.mydemo.netstate.Netstate;
 import com.example.jinux.mydemo.slidingmenu.SlidingMenuActivity;
@@ -30,9 +33,17 @@ import java.util.List;
 
 public class MainActivity extends ListActivity {
 
+    private static final String TAG = "MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String a = null;
+        if (a instanceof String) {
+            Log.d(TAG, "null instanceof String");
+        } else {
+            Log.d(TAG, "null not instanceof String");
+        }
         setContentView(R.layout.activity_main);
         List<String> list = new ArrayList<>();
         list.add("悬浮框");
@@ -44,6 +55,8 @@ public class MainActivity extends ListActivity {
         list.add("Material Animation");
         list.add("网络状态");
         list.add("TabHost");
+        list.add("TestGoogleApi");
+        list.add("TestAnimation");
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list));
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -77,6 +90,12 @@ public class MainActivity extends ListActivity {
                         break;
                     case 8:
                         startActivity(TestTabActivity.class);
+                        break;
+                    case 9:
+                        startActivity(TestGoogleApi.class);
+                        break;
+                    case 10:
+                        startActivity(TestAnimation.class);
                         break;
                 }
 

@@ -2,19 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jinux.mydemo" >
 
-    <uses-permission android:name="ANDROID.PERMISSION.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="ANDROID.PERMISSION.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="ANDROID.PERMISSION.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +29,7 @@
         <service
             android:name=".xuanfukuang.XuanfukuangService"
             android:enabled="true"
-            android:exported="true" >
+            android:exported="true">
         </service>
 
         <activity android:name=".slidingmenu.SlidingMenuActivity" />
@@ -52,10 +53,18 @@
             android:theme="@style/mytheme" />
         <activity
             android:name=".netstate.Netstate"
-            android:label="@string/title_activity_netstate" >
+            android:label="@string/title_activity_netstate">
         </activity>
         <activity
             android:name=".tabhost.TestTabActivity"
+            android:label="@string/title_activity_test_tab" >
+        </activity>
+        <activity
+            android:name=".TestGoogleApi.TestGoogleApi"
+            android:label="@string/title_activity_test_tab" >
+        </activity>
+        <activity
+            android:name=".animation.TestAnimation"
             android:label="@string/title_activity_test_tab" >
         </activity>
     </application>

@@ -17,10 +17,15 @@ public class XuanfukuangActivity extends Activity{
         setContentView(R.layout.activity_xuanfukuang);
     }
 
-    public void onButtonClick(View view) {
+    public void onOpenClick(View view) {
         Intent i = new Intent(this,XuanfukuangService.class);
         startService(i);
     }
 
 
+    public void onCloseClick(View view) {
+        Intent i = new Intent(this,XuanfukuangService.class);
+        i.setAction("close");
+        startService(i);
+    }
 }

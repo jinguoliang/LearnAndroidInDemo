@@ -3,16 +3,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="打开悬浮框"
-        android:onClick="onOpenClick"
-        />
-    <Button
+        android:id="@+id/googleName"/>
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="关闭悬浮框"
-        android:onClick="onCloseClick"
-        />
+        android:id="@+id/conStatus"/>
 </LinearLayout>

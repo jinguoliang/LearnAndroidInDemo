@@ -25,7 +25,7 @@ public class FloatingSmallWindow extends LinearLayout {
 
     public FloatingSmallWindow(Context context) {
         super(context);
-        windowManager = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
+        windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         TextView tv = new TextView(getContext());
         tv.setText("hello");
         this.addView(tv);
@@ -34,16 +34,16 @@ public class FloatingSmallWindow extends LinearLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()){
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 xInView = event.getX();
                 yInView = event.getY();
                 xInWindow = event.getRawX();
-                yInWindow = event.getRawY()- Utils.getStatusBarHeight(getContext());
+                yInWindow = event.getRawY() - Utils.getStatusBarHeight(getContext());
                 break;
             case MotionEvent.ACTION_MOVE:
                 xInWindow = event.getRawX();
-                yInWindow = event.getRawY()- Utils.getStatusBarHeight(getContext());
+                yInWindow = event.getRawY() - Utils.getStatusBarHeight(getContext());
                 updateViewPosition();
                 break;
         }
@@ -55,8 +55,8 @@ public class FloatingSmallWindow extends LinearLayout {
     }
 
     private void updateViewPosition() {
-        mParams.x = (int) (xInWindow-xInView);
-        mParams.y = (int) (yInWindow-yInView);
-        windowManager.updateViewLayout(this,mParams);
+        mParams.x = (int) (xInWindow - xInView);
+        mParams.y = (int) (yInWindow - yInView);
+        windowManager.updateViewLayout(this, mParams);
     }
 }
