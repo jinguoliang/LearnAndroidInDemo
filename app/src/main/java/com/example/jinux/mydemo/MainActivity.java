@@ -4,10 +4,10 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.app.ListActivity;
+import android.app.Service;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.method.Touch;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,13 +17,17 @@ import android.widget.ArrayAdapter;
 
 import com.example.jinux.mydemo.TestGoogleApi.TestGoogleApi;
 import com.example.jinux.mydemo.animation.TestAnimation;
+import com.example.jinux.mydemo.asynctask.SeeAsyncTask;
 import com.example.jinux.mydemo.materail_animation.TouchFeedBack;
 import com.example.jinux.mydemo.netstate.Netstate;
+import com.example.jinux.mydemo.notification.ForegroundService;
+import com.example.jinux.mydemo.reloadactivity.TestChangeConfig;
 import com.example.jinux.mydemo.slidingmenu.SlidingMenuActivity;
 import com.example.jinux.mydemo.actitionbar.ActitionBarDemo;
 import com.example.jinux.mydemo.drawer.DrawerActivity;
 import com.example.jinux.mydemo.storehouse.StoreHouseUsingStringArray;
 import com.example.jinux.mydemo.tabhost.TestTabActivity;
+import com.example.jinux.mydemo.task.GetActivityTask;
 import com.example.jinux.mydemo.titanic.TitanicDemo;
 import com.example.jinux.mydemo.xuanfukuang.XuanfukuangActivity;
 
@@ -57,6 +61,10 @@ public class MainActivity extends ListActivity {
         list.add("TabHost");
         list.add("TestGoogleApi");
         list.add("TestAnimation");
+        list.add("通知");
+        list.add("测试配置更改时是否加载 activity");
+        list.add("AsycTask");
+        list.add("ActivityTask");
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list));
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -97,10 +105,23 @@ public class MainActivity extends ListActivity {
                     case 10:
                         startActivity(TestAnimation.class);
                         break;
+                    case 11:
+                        startService(ForegroundService.class);
+                        break;
+                    case 12:
+                        startActivity(TestChangeConfig.class);
+                        break;
+                    case 13:
+                        startActivity(SeeAsyncTask.class);
+                        break;
+                    case 14:
+                        startActivity(GetActivityTask.class);
+                        break;
                 }
 
             }
         });
+        Log.d("test", "main oncreate");
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -115,6 +136,12 @@ public class MainActivity extends ListActivity {
         i.setClass(MainActivity.this, c);
         startActivity(i);
     }
+    void startService(Class<? extends Service> c) {
+        Intent i = new Intent();
+        i.setClass(MainActivity.this, c);
+        startService(i);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
