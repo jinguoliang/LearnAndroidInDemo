@@ -32,12 +32,21 @@ import com.example.jinux.mydemo.titanic.TitanicDemo;
 import com.example.jinux.mydemo.xuanfukuang.XuanfukuangActivity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 
 public class MainActivity extends ListActivity {
 
     private static final String TAG = "MainActivity";
+    private static final String KEY_ACTIVITY = "key_activity";
+    private static final String KEY_SERVICE = "key_service";
+
+
+    private List<String> mTitleList;
+    List<Map<String, Class<? extends Object>>> mMaps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,79 +58,53 @@ public class MainActivity extends ListActivity {
             Log.d(TAG, "null not instanceof String");
         }
         setContentView(R.layout.activity_main);
-        List<String> list = new ArrayList<>();
-        list.add("悬浮框");
-        list.add("波浪效果");
-        list.add("抽屉");
-        list.add("Toolbar");
-        list.add("storehouse");
-        list.add("侧滑菜单");
-        list.add("Material Animation");
-        list.add("网络状态");
-        list.add("TabHost");
-        list.add("TestGoogleApi");
-        list.add("TestAnimation");
-        list.add("通知");
-        list.add("测试配置更改时是否加载 activity");
-        list.add("AsycTask");
-        list.add("ActivityTask");
-        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list));
+        mTitleList = new ArrayList<>();
+        mMaps = new ArrayList<>();
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mTitleList));
+
+        addActivity("悬浮框", XuanfukuangActivity.class);
+        addActivity("波浪效果", TitanicDemo.class);
+        addActivity("抽屉", DrawerActivity.class);
+        addActivity("Toolbar", ActitionBarDemo.class);
+        addActivity("storehouse", StoreHouseUsingStringArray.class);
+        addActivity("侧滑菜单", SlidingMenuActivity.class);
+        addActivity("Material Animation", TouchFeedBack.class);
+        addActivity("网络状态", Netstate.class);
+        addActivity("TabHost", TestTabActivity.class);
+        addActivity("TestGoogleApi", TestGoogleApi.class);
+        addActivity("TestAnimation", TestAnimation.class);
+        addService("通知", ForegroundService.class);
+        addActivity("测试配置更改时是否加载 activity", TestChangeConfig.class);
+        addActivity("AsycTask", SeeAsyncTask.class);
+        addActivity("ActivityTask", GetActivityTask.class);
+
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                switch (position) {
-                    case 0:
-                        startActivity(XuanfukuangActivity.class);
-
-                        break;
-                    case 1:
-                        startActivity(TitanicDemo.class);
-                        break;
-                    case 2:
-                        startActivity(DrawerActivity.class);
-                        break;
-                    case 3:
-                        startActivity(ActitionBarDemo.class);
-                        break;
-                    case 4:
-                        startActivity(StoreHouseUsingStringArray.class);
-						break;
-					case 5:
-                        startActivity(SlidingMenuActivity.class);
-                        break;
-                    case 6:
-                        startActivityTransition(TouchFeedBack.class);
-                        break;
-                    case 7:
-                        startActivity(Netstate.class);
-                        break;
-                    case 8:
-                        startActivity(TestTabActivity.class);
-                        break;
-                    case 9:
-                        startActivity(TestGoogleApi.class);
-                        break;
-                    case 10:
-                        startActivity(TestAnimation.class);
-                        break;
-                    case 11:
-                        startService(ForegroundService.class);
-                        break;
-                    case 12:
-                        startActivity(TestChangeConfig.class);
-                        break;
-                    case 13:
-                        startActivity(SeeAsyncTask.class);
-                        break;
-                    case 14:
-                        startActivity(GetActivityTask.class);
-                        break;
+                Map<String, Class<?>> map = mMaps.get(position);
+                if (map.get(KEY_ACTIVITY) != null) {
+                    startActivity((Class<? extends Activity>) map.get(KEY_ACTIVITY));
+                } else if(map.get(KEY_SERVICE) != null) {
+                    startService((Class<? extends Service>) map.get(KEY_SERVICE));
                 }
 
             }
         });
         Log.d("test", "main oncreate");
+    }
+
+    private void addService(String title, Class<? extends Service> serviceClass) {
+        mTitleList.add(title);
+        HashMap map = new HashMap();
+        map.put(KEY_SERVICE, serviceClass);
+        mMaps.add(map);
+    }
+
+    private void addActivity(String title, Class<? extends Activity> activityClass) {
+        mTitleList.add(title);
+        HashMap map = new HashMap();
+        map.put(KEY_ACTIVITY, activityClass);
+        mMaps.add(map);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -136,6 +119,7 @@ public class MainActivity extends ListActivity {
         i.setClass(MainActivity.this, c);
         startActivity(i);
     }
+
     void startService(Class<? extends Service> c) {
         Intent i = new Intent();
         i.setClass(MainActivity.this, c);
