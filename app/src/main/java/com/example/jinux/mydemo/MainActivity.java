@@ -18,10 +18,17 @@ import android.widget.ArrayAdapter;
 import com.example.jinux.mydemo.TestGoogleApi.TestGoogleApi;
 import com.example.jinux.mydemo.animation.TestAnimation;
 import com.example.jinux.mydemo.asynctask.SeeAsyncTask;
+import com.example.jinux.mydemo.design.ScrollingActivity;
+import com.example.jinux.mydemo.design.TestCoordinatorLayout;
+import com.example.jinux.mydemo.eventbus.TestEventBus;
+import com.example.jinux.mydemo.inject.TestDagger;
 import com.example.jinux.mydemo.materail_animation.TouchFeedBack;
 import com.example.jinux.mydemo.netstate.Netstate;
 import com.example.jinux.mydemo.notification.ForegroundService;
 import com.example.jinux.mydemo.reloadactivity.TestChangeConfig;
+import com.example.jinux.mydemo.rxjava.TestRxJava;
+import com.example.jinux.mydemo.s3.S3simple;
+import com.example.jinux.mydemo.service.TestServiceDestroy;
 import com.example.jinux.mydemo.slidingmenu.SlidingMenuActivity;
 import com.example.jinux.mydemo.actitionbar.ActitionBarDemo;
 import com.example.jinux.mydemo.drawer.DrawerActivity;
@@ -29,13 +36,14 @@ import com.example.jinux.mydemo.storehouse.StoreHouseUsingStringArray;
 import com.example.jinux.mydemo.tabhost.TestTabActivity;
 import com.example.jinux.mydemo.task.GetActivityTask;
 import com.example.jinux.mydemo.titanic.TitanicDemo;
+import com.example.jinux.mydemo.view.TestView;
+import com.example.jinux.mydemo.view.TestViewPager;
 import com.example.jinux.mydemo.xuanfukuang.XuanfukuangActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 
 public class MainActivity extends ListActivity {
@@ -51,6 +59,7 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         String a = null;
         if (a instanceof String) {
             Log.d(TAG, "null instanceof String");
@@ -62,7 +71,9 @@ public class MainActivity extends ListActivity {
         mMaps = new ArrayList<>();
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mTitleList));
 
+        addActivity("调起 GooglePlay", GPInstanll.class);
         addActivity("悬浮框", XuanfukuangActivity.class);
+        addActivity("S3 simple", S3simple.class);
         addActivity("波浪效果", TitanicDemo.class);
         addActivity("抽屉", DrawerActivity.class);
         addActivity("Toolbar", ActitionBarDemo.class);
@@ -73,10 +84,18 @@ public class MainActivity extends ListActivity {
         addActivity("TabHost", TestTabActivity.class);
         addActivity("TestGoogleApi", TestGoogleApi.class);
         addActivity("TestAnimation", TestAnimation.class);
-        addService("通知", ForegroundService.class);
+        addService("通知<服务>", ForegroundService.class);
         addActivity("测试配置更改时是否加载 activity", TestChangeConfig.class);
         addActivity("AsycTask", SeeAsyncTask.class);
         addActivity("ActivityTask", GetActivityTask.class);
+        addActivity("RxJava", TestRxJava.class);
+        addActivity("EventBus", TestEventBus.class);
+        addActivity("View", TestView.class);
+        addActivity("CoordinatorLayout", TestCoordinatorLayout.class);
+        addActivity("ViewPager", TestViewPager.class);
+        addActivity("NestedScrolling", ScrollingActivity.class);
+        addActivity("Dagger", TestDagger.class);
+        addActivity("Simulate Service Crash", TestServiceDestroy.class);
 
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

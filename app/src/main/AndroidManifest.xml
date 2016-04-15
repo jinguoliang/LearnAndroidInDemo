@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jinux.mydemo" >
+    package="com.example.jinux.mydemo">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"></uses-permission>
-    <uses-permission android:name="android.permission.REAL_GET_TASKS"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.REAL_GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -32,23 +33,19 @@
         <service
             android:name=".xuanfukuang.XuanfukuangService"
             android:enabled="true"
-            android:exported="true">
-        </service>
+            android:exported="true"></service>
 
         <activity android:name=".slidingmenu.SlidingMenuActivity" />
         <activity
             android:name=".titanic.TitanicDemo"
-            android:label="@string/title_activity_titanic_demo" >
-        </activity>
+            android:label="@string/title_activity_titanic_demo"></activity>
         <activity
             android:name=".drawer.DrawerActivity"
-            android:label="@string/title_activity_drawer" >
-        </activity>
+            android:label="@string/title_activity_drawer"></activity>
         <activity
             android:name=".actitionbar.ActitionBarDemo"
             android:label="@string/title_activity_actition_bar_demo"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity android:name=".storehouse.StoreHouseUsingStringArray" />
         <activity android:name=".materail_animation.TouchFeedBack" />
         <activity
@@ -56,33 +53,39 @@
             android:theme="@style/mytheme" />
         <activity
             android:name=".netstate.Netstate"
-            android:label="@string/title_activity_netstate">
-        </activity>
+            android:label="@string/title_activity_netstate"></activity>
         <activity
             android:name=".tabhost.TestTabActivity"
-            android:label="@string/title_activity_test_tab" >
-        </activity>
+            android:label="@string/title_activity_test_tab"></activity>
         <activity
             android:name=".TestGoogleApi.TestGoogleApi"
-            android:label="@string/title_activity_test_tab" >
-        </activity>
+            android:label="@string/title_activity_test_tab"></activity>
         <activity
             android:name=".animation.TestAnimation"
-            android:label="@string/title_activity_test_tab" >
-        </activity>
-        <activity android:name=".notification.Test"></activity>
-        <activity android:name=".reloadactivity.TestChangeConfig"
-            android:configChanges="orientation|keyboardHidden|locale"></activity>
-        <service android:name=".notification.ForegroundService"></service>
+            android:label="@string/title_activity_test_tab"></activity>
+        <activity android:name=".notification.Test" />
         <activity
-            android:name=".asynctask.SeeAsyncTask" >
-        </activity>
+            android:name=".reloadactivity.TestChangeConfig"
+            android:configChanges="orientation|keyboardHidden|locale" />
+
+        <service android:name=".notification.ForegroundService" />
+
+        <activity android:name=".asynctask.SeeAsyncTask"></activity>
+        <activity android:name=".asynctask.SeeAsyncTask1"></activity>
+        <activity android:name=".task.GetActivityTask"></activity>
+        <activity android:name=".rxjava.TestRxJava"></activity>
+        <activity android:name=".eventbus.TestEventBus"></activity>
+        <activity android:name=".view.TestView" />
+        <activity android:name=".view.TestViewPager" />
+        <activity android:name=".design.TestCoordinatorLayout" />
+        <activity android:name=".s3.S3simple" />
+        <activity android:name=".GPInstanll" />
+        <activity android:name=".inject.TestDagger" />
+        <activity android:name=".service.TestServiceDestroy" />
+        <service android:name=".service.MService" />
         <activity
-            android:name=".asynctask.SeeAsyncTask1" >
-        </activity>
-        <activity
-            android:name=".task.GetActivityTask" >
-        </activity>
+            android:name=".design.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"></activity>
     </application>
 
 </manifest>
