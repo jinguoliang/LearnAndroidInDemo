@@ -33,6 +33,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.jinux.mydemo.R;
+import com.example.jinux.mydemo.common.Utils;
 
 public class S3simple extends Activity {
 
@@ -56,13 +57,9 @@ public class S3simple extends Activity {
 		select.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// start file chooser
-				Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-				intent.setType("*/*");
-				intent.addCategory(Intent.CATEGORY_OPENABLE);
-				startActivityForResult(
-						Intent.createChooser(intent, "Select a file to upload"),
-						FILE_SELECT_CODE);
+				Intent intent = new Intent(S3simple.this, UploadService.class);
+				intent.putExtra(UploadService.ARG_FILE_PATH, "/sdcard/gamerecorder/Game Show_20160609_12.mp4");
+				startService(intent);
 			}
 		});
 		
@@ -91,30 +88,12 @@ public class S3simple extends Activity {
 		super.onStop();
 	}
 	
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == FILE_SELECT_CODE) {
-			if (resultCode == RESULT_OK) {  
-                // get path of selected file 
-                Uri uri = data.getData();
-                String path = getPathFromContentUri(uri);
-                Log.d("S3", "uri=" + uri.toString());
-                Log.d("S3", "path=" + path);
-                // initiate the upload
-                Intent intent = new Intent(this, UploadService.class);
-                intent.putExtra(UploadService.ARG_FILE_PATH, path);
-                startService(intent);
-            }
-		}
-		super.onActivityResult(requestCode, resultCode, data);
-	}
-	
 	private String getPathFromContentUri(Uri uri) {
 		String path = uri.getPath();
 		if (uri.toString().startsWith("content://")) {
-			String[] projection = { MediaStore.MediaColumns.DATA };
+			String[] projection = { MediaStore.MediaColumns.DATA,MediaStore.MediaColumns.HEIGHT };
 			ContentResolver cr = getApplicationContext().getContentResolver();
-			Cursor cursor = cr.query(uri, projection, null, null, null);
+			Cursor cursor = cr.query(uri, null, null, null, null);
 			if (cursor != null) {
 				try {
 					if (cursor.moveToFirst()) {

@@ -22,6 +22,7 @@ import java.util.List;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.support.v7.internal.view.menu.MenuDialogHelper;
 import android.util.Log;
 
 import com.amazonaws.services.s3.AmazonS3Client;
@@ -36,6 +37,8 @@ import com.amazonaws.services.s3.model.ProgressEvent;
 import com.amazonaws.services.s3.model.ProgressListener;
 import com.amazonaws.services.s3.model.UploadPartRequest;
 import com.amazonaws.services.s3.model.UploadPartResult;
+import com.amazonaws.util.VersionInfoUtils;
+import com.example.jinux.mydemo.common.Utils;
 import com.example.jinux.mydemo.s3.utils.SharedPreferencesCompat;
 import com.example.jinux.mydemo.s3.utils.SharedPreferencesUtils;
 
@@ -88,7 +91,7 @@ public class Uploader {
 		
 		// check if we can resume an incomplete download
 		String uploadId = getCachedUploadId();
-		
+		Utils.log("start uploading");
 		if (uploadId != null) {
 			// we can resume the download
 			Log.i(TAG, "resuming upload for " + uploadId);
@@ -107,9 +110,12 @@ public class Uploader {
 		} else {
 			// initiate a new multi part upload
 			Log.i(TAG, "initiating new upload");
-			
+
+			Utils.log("the bucket = " + s3bucketName);
 	        InitiateMultipartUploadRequest initRequest = new InitiateMultipartUploadRequest(s3bucketName, s3key);
 	        configureInitiateRequest(initRequest);
+			initRequest.getRequestClientOptions().appendUserAgent("TransferService_multipart/"
+					+ VersionInfoUtils.getVersion());
 	        InitiateMultipartUploadResult initResponse = s3Client.initiateMultipartUpload(initRequest);
 	        uploadId = initResponse.getUploadId();
 			

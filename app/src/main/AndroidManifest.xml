@@ -64,6 +64,7 @@
             android:name=".animation.TestAnimation"
             android:label="@string/title_activity_test_tab"></activity>
         <activity android:name=".notification.Test" />
+        <activity android:name=".recordscreen.RecordScreen" />
         <activity
             android:name=".reloadactivity.TestChangeConfig"
             android:configChanges="orientation|keyboardHidden|locale" />
@@ -79,9 +80,11 @@
         <activity android:name=".view.TestViewPager" />
         <activity android:name=".design.TestCoordinatorLayout" />
         <activity android:name=".s3.S3simple" />
+        <service android:name=".s3.UploadService" />
         <activity android:name=".GPInstanll" />
         <activity android:name=".inject.TestDagger" />
         <activity android:name=".service.TestServiceDestroy" />
+        <activity android:name=".view.TestRotateTextView" />
         <service android:name=".service.MService" />
         <activity
             android:name=".design.ScrollingActivity"

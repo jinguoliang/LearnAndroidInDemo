@@ -20,11 +20,13 @@ import com.example.jinux.mydemo.animation.TestAnimation;
 import com.example.jinux.mydemo.asynctask.SeeAsyncTask;
 import com.example.jinux.mydemo.design.ScrollingActivity;
 import com.example.jinux.mydemo.design.TestCoordinatorLayout;
+import com.example.jinux.mydemo.event.TestEventConsume;
 import com.example.jinux.mydemo.eventbus.TestEventBus;
 import com.example.jinux.mydemo.inject.TestDagger;
 import com.example.jinux.mydemo.materail_animation.TouchFeedBack;
 import com.example.jinux.mydemo.netstate.Netstate;
 import com.example.jinux.mydemo.notification.ForegroundService;
+import com.example.jinux.mydemo.recordscreen.RecordScreen;
 import com.example.jinux.mydemo.reloadactivity.TestChangeConfig;
 import com.example.jinux.mydemo.rxjava.TestRxJava;
 import com.example.jinux.mydemo.s3.S3simple;
@@ -36,6 +38,7 @@ import com.example.jinux.mydemo.storehouse.StoreHouseUsingStringArray;
 import com.example.jinux.mydemo.tabhost.TestTabActivity;
 import com.example.jinux.mydemo.task.GetActivityTask;
 import com.example.jinux.mydemo.titanic.TitanicDemo;
+import com.example.jinux.mydemo.view.TestRotateTextView;
 import com.example.jinux.mydemo.view.TestView;
 import com.example.jinux.mydemo.view.TestViewPager;
 import com.example.jinux.mydemo.xuanfukuang.XuanfukuangActivity;
@@ -72,6 +75,7 @@ public class MainActivity extends ListActivity {
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mTitleList));
 
         addActivity("调起 GooglePlay", GPInstanll.class);
+        addActivity("录屏（首先 pc 执行adb tcpip 5555）", RecordScreen.class);
         addActivity("悬浮框", XuanfukuangActivity.class);
         addActivity("S3 simple", S3simple.class);
         addActivity("波浪效果", TitanicDemo.class);
@@ -96,6 +100,8 @@ public class MainActivity extends ListActivity {
         addActivity("NestedScrolling", ScrollingActivity.class);
         addActivity("Dagger", TestDagger.class);
         addActivity("Simulate Service Crash", TestServiceDestroy.class);
+        addActivity("RotateTextView", TestRotateTextView.class);
+        addActivity("事件消费",  TestEventConsume.class);
 
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
