@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jinux.mydemo">
+<manifest package="com.example.jinux.mydemo"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
-    <uses-permission android:name="android.permission.REAL_GET_TASKS" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.REAL_GET_TASKS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -21,21 +23,21 @@
             android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".xuanfukuang.XuanfukuangActivity"
-            android:label="悬浮框" />
+            android:label="悬浮框"/>
 
         <service
             android:name=".xuanfukuang.XuanfukuangService"
             android:enabled="true"
             android:exported="true"></service>
 
-        <activity android:name=".slidingmenu.SlidingMenuActivity" />
+        <activity android:name=".slidingmenu.SlidingMenuActivity"/>
         <activity
             android:name=".titanic.TitanicDemo"
             android:label="@string/title_activity_titanic_demo"></activity>
@@ -46,11 +48,11 @@
             android:name=".actitionbar.ActitionBarDemo"
             android:label="@string/title_activity_actition_bar_demo"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity android:name=".storehouse.StoreHouseUsingStringArray" />
-        <activity android:name=".materail_animation.TouchFeedBack" />
+        <activity android:name=".storehouse.StoreHouseUsingStringArray"/>
+        <activity android:name=".materail_animation.TouchFeedBack"/>
         <activity
             android:name=".materail_animation.TestMaterialTransition"
-            android:theme="@style/mytheme" />
+            android:theme="@style/mytheme"/>
         <activity
             android:name=".netstate.Netstate"
             android:label="@string/title_activity_netstate"></activity>
@@ -63,32 +65,52 @@
         <activity
             android:name=".animation.TestAnimation"
             android:label="@string/title_activity_test_tab"></activity>
-        <activity android:name=".notification.Test" />
-        <activity android:name=".recordscreen.RecordScreen" />
+        <activity android:name=".notification.Test"/>
+        <activity android:name=".recordscreen.RecordScreen"/>
         <activity
             android:name=".reloadactivity.TestChangeConfig"
-            android:configChanges="orientation|keyboardHidden|locale" />
+            android:configChanges="orientation|keyboardHidden|locale"/>
 
-        <service android:name=".notification.ForegroundService" />
+        <service android:name=".notification.ForegroundService"/>
 
         <activity android:name=".asynctask.SeeAsyncTask"></activity>
         <activity android:name=".asynctask.SeeAsyncTask1"></activity>
         <activity android:name=".task.GetActivityTask"></activity>
         <activity android:name=".rxjava.TestRxJava"></activity>
         <activity android:name=".eventbus.TestEventBus"></activity>
-        <activity android:name=".view.TestView" />
-        <activity android:name=".view.TestViewPager" />
-        <activity android:name=".design.TestCoordinatorLayout" />
-        <activity android:name=".s3.S3simple" />
-        <service android:name=".s3.UploadService" />
-        <activity android:name=".GPInstanll" />
-        <activity android:name=".inject.TestDagger" />
-        <activity android:name=".service.TestServiceDestroy" />
-        <activity android:name=".view.TestRotateTextView" />
-        <service android:name=".service.MService" />
+        <activity android:name=".view.TestView"/>
+        <activity android:name=".view.TestViewPager"/>
+        <activity android:name=".design.TestCoordinatorLayout"/>
+        <activity android:name=".s3.S3simple"/>
+
+        <service android:name=".s3.UploadService"/>
+
+        <activity android:name=".animation.AnimatorAdded"/>
+        <activity android:name=".GPInstanll"/>
+        <activity android:name=".inject.TestDagger"/>
+        <activity android:name=".service.TestServiceDestroy"/>
+        <activity android:name=".view.TestRotateTextView"/>
+
+        <service android:name=".service.MService"/>
+
         <activity
             android:name=".design.ScrollingActivity"
             android:label="@string/title_activity_scrolling"></activity>
+        <activity android:name=".view.VelocityTracker"/>
+        <activity android:name=".resouce.font.Fonts"/>
+        <activity android:name=".graphic.GifViewDemo"/>
+        <activity android:name=".experiment.CompileGolangActivity"/>
+        <activity android:name=".provider.document.DemoActivity"/>
+        <activity android:name=".resouce.DrawableTest"/>
+        <activity android:name=".resouce.SpannableTest"/>
+        <activity android:name=".facedetact.FaceDetectDemo"/>
+        <activity android:name=".canvas.CanvasTest"/>
+        <activity android:name=".time.TestFunctionConsumeTime"/>
+        <activity android:name=".ShareToYoutube"/>
+        <activity android:name=".remoteview.TestRemoteView"/>
+        <activity android:name=".remoteview.RemoteActivity" android:process=":remote">
+        </activity>
+        <activity android:name=".tranact.TranslateActivity"/>
     </application>
 
 </manifest>

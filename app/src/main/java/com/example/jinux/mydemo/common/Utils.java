@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.support.v4.util.TimeUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -17,7 +18,7 @@ import java.util.List;
  */
 public class Utils {
 
-    public static boolean isHome(Context context){
+    public static boolean isHome(Context context) {
         ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningTaskInfo> list = manager.getRunningTasks(1);
         return getHome(context).contains(list.get(0).topActivity.getPackageName());
@@ -26,21 +27,21 @@ public class Utils {
     private static List<String> getHome(Context context) {
         List<String> packageNames = new ArrayList<>();
         PackageManager manager = context.getPackageManager();
-        Intent intent =new Intent(Intent.ACTION_MAIN);
+        Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
-        List<ResolveInfo> list= manager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-        for(ResolveInfo info : list){
+        List<ResolveInfo> list = manager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        for (ResolveInfo info : list) {
             packageNames.add(info.activityInfo.packageName);
         }
         return packageNames;
     }
 
-    public static int getStatusBarHeight(Context context){
+    public static int getStatusBarHeight(Context context) {
         try {
             Class<?> c = Class.forName("com.android.internal.R$dimen");
             Object object = c.newInstance();
             Field field = c.getField("status_bar_height");
-            int x = (int)field.get(object);
+            int x = (int) field.get(object);
             return context.getResources().getDimensionPixelSize(x);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -54,11 +55,24 @@ public class Utils {
         return -1;
     }
 
-    public static void showToast(Context c,String s){
-        Toast.makeText(c,s,Toast.LENGTH_SHORT).show();
+    public static void showToast(Context c, String s) {
+        Toast.makeText(c, s, Toast.LENGTH_SHORT).show();
     }
 
-    public static void log(String s){
-        Log.i("wowoMsg", s);
+    public static void log(String s) {
+        Log.e("wowoMsg", s);
+    }
+
+    private static long sTickTime = 0;
+
+    public static void tick() {
+        sTickTime = System.currentTimeMillis();
+    }
+
+    public static void tock(String msg) {
+        long duration = System.currentTimeMillis() - sTickTime;
+        StringBuilder builder = new StringBuilder();
+        TimeUtils.formatDuration(duration, builder);
+        log(msg + ": " + builder.toString());
     }
 }

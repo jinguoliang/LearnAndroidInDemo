@@ -1,15 +1,11 @@
 package com.example.jinux.mydemo.view;
 
 import android.app.Activity;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.TouchDelegate;
 import android.view.View;
-import android.widget.EditText;
 
-import com.example.jinux.mydemo.R;
 import com.example.jinux.mydemo.common.Utils;
 
 /**
@@ -43,6 +39,8 @@ public class TestView extends Activity {
                 return false;
             }
         });
+
+        v = new TestClipView(this);
         setContentView(v);
     }
 

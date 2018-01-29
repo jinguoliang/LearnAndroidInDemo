@@ -9,7 +9,10 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
 import android.view.Gravity;
+import android.view.View;
 import android.view.WindowManager;
+
+import com.example.jinux.mydemo.GPInstanll;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -72,9 +75,17 @@ public class XuanfukuangService extends Service {
                             smallWindowParams.gravity = Gravity.LEFT | Gravity.TOP;
                             smallWindowParams.width = 200;
                             smallWindowParams.height = 200;
-                            smallWindowParams.x = 0;
-                            smallWindowParams.y = 0;
+                            smallWindowParams.x = 200;
+                            smallWindowParams.y = 200;
                         }
+                        smallWindow.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent  = new Intent(getApplicationContext(), GPInstanll.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                            }
+                        });
                         smallWindow.setmParams(smallWindowParams);
                         windowManager.addView(smallWindow, smallWindowParams);
                         handler.postDelayed(new Runnable() {

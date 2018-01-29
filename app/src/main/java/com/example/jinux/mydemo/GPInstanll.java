@@ -43,7 +43,7 @@ public class GPInstanll extends Activity {
             showToast(R.string.pls_input_pkg);
             return;
         }
-        gotoGP(pkg);
+//        gotoGP(pkg);
     }
 
     private void gotoGP(String pkg) {

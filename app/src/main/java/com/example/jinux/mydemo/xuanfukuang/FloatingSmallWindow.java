@@ -2,14 +2,13 @@ package com.example.jinux.mydemo.xuanfukuang;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.jinux.mydemo.R;
 import com.example.jinux.mydemo.common.Utils;
 
 /**
@@ -28,8 +27,27 @@ public class FloatingSmallWindow extends LinearLayout {
         windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         TextView tv = new TextView(getContext());
         tv.setText("hello");
+        tv.setBackgroundColor(Color.CYAN);
         this.addView(tv);
         setBackgroundColor(Color.BLUE);
+        TextView tv1 = new TextView(getContext());
+        tv1.setText("hello" +
+                "hdhdhdf");
+        tv1.setBackgroundColor(Color.YELLOW);
+        tv1.setVisibility(View.INVISIBLE);
+        this.addView(tv1, new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        this.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+               setVisibility(View.INVISIBLE);
+                postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                       setVisibility(View.VISIBLE);
+                    }
+                }, 3000);
+            }
+        }, 5000);
     }
 
     @Override

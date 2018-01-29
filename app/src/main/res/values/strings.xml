@@ -109,4 +109,9 @@
     <string name="pls_input_pkg">Please input pkg</string>
     <string name="goGP">go to google play</string>
     <string name="no_browser">No Browser</string>
+    <string name="fonttest">Hello World 你好世界</string>
+    <string name="run">Run</string>
+    <string name="go_content">package main\n import \"fmt\"\n  func main() {\n \tfmt.Println(\"Hello, 世界\")\n
+        }\n</string>
+    <string name="result">Result:</string>
 </resources>
